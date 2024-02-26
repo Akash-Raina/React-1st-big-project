@@ -14,7 +14,8 @@ export const Navbar = ()=>{
                     <span>LearnReact</span>
                     <div className="flex gap-4">
                         <Link to={"/"}>Home</Link>
-                        <Link to={"/login"}>Login</Link>
+                        {!user ? (<Link to={"/login"}>Login</Link>):
+                        (<Link to ={"/createpost"}>Create Post</Link>)}
                     </div>
                     </div>
                     {user && (
