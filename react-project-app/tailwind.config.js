@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        logo: "Madimi One",
+        signIn: "Kode Mono"
+      },
+    },
   },
   plugins: [],
 }
