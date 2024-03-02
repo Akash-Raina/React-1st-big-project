@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import {auth} from "../config/firebase"
 import {useAuthState} from "react-firebase-hooks/auth"
 import {signOut} from "firebase/auth"
-import { IoMdHome, IoMdAddCircle, IoMdLogIn } from "react-icons/io";
+import { IoMdHome, IoMdAddCircle } from "react-icons/io";
 import { FaSignOutAlt } from "react-icons/fa";
 
 export const Navbar = ()=>{
