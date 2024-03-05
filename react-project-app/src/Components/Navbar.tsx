@@ -14,9 +14,9 @@ export const Navbar = ()=>{
     const selectLogedInUi = "flex  w-[65%] justify-between  pt-3 md:w-[70%]"
     return(
         <>
-            <div className=" flex items-center gap-2 justify-between px-7">
+            <div className="border-b pb-2 flex items-center gap-2 justify-between px-7">
                 <div className={`${!user ? selectSignInUi : selectLogedInUi}`}>
-                    <span className="font-logo font-bold text-white text-2xl">MiniTwitter</span>
+                    <span className="font-logo font-bold text-white text-2xl hover:text-violet-500 cursor-pointer">MiniTwitter</span>
                     <div className=" flex gap-8 ">
                         <Link to={"/"}><IoMdHome size={30} color="white"/></Link>
                         {!user ? (<Link to={"/login"} className="font-signIn font-bold text-white rounded-md text-lg bg-lime-500 w-24 text-center hover:bg-green-500 ">SignIn</Link>):

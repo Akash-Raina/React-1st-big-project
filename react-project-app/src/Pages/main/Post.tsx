@@ -3,6 +3,7 @@ import {Post as IPost} from './Main';
 import {db, auth } from '../../config/firebase';
 import { addDoc, getDocs, collection, query, where, deleteDoc, doc } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 
 interface Props{
     post: IPost;
@@ -59,19 +60,21 @@ export const Post = (props : Props) =>{
     const userLiked = likes?.find((seeLike => seeLike.userId === user?.uid));
     useEffect(() => {getlikes();}, [])
     return (
-        <>
-        <div>
-            <h1>{post.title}</h1>
+        <div className=' flex flex-col items-center mx-10 my-6 border-b-2'>
+            <div className=' text-2xl font-logo text-violet-500'>
+                @{post.username}
+            </div> 
+            <div>
+                <h1 className='text-xl font-bold text-slate-300'>{post.title}</h1>
+            </div>
+            <div>
+                <p className='text-lg text-white'>{post.description}</p>
+            </div>      
+            <div className='flex gap-2'>
+                <button className='' onClick={userLiked ? removeLike : addLike}>{userLiked ? <><FaHeart size={30}/></> : <><FaRegHeart size={30}/></> }</button>
+                {likes && <p className='text-lg font-bold'>{likes?.length}</p>}
+            </div>
         </div>
-        <div>
-            <p>{post.description}</p>
-        </div>      
-        <div>
-            @{post.username}
-        </div> 
-        <button className='border' onClick={userLiked ? removeLike : addLike}>{userLiked ? <>&#128078;</> : <>&#128077;</> }</button>
-        {likes && <p>likes:{likes?.length}</p>}
-        </>
 
     )
 }
